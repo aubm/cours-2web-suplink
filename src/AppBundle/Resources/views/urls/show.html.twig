@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+{% import '@App/urls/macros.html.twig' as urlsMacros %}
+
+{% block body %}
+    <div>
+        <p>Go back to <a href="{{ path('app_urls_index') }}">urls list</a></p>
+    </div>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td><strong>ID</strong></td>
+            <td>{{ url.id }}</td>
+        </tr>
+        <tr>
+            <td><strong>Original URL</strong></td>
+            <td>{{ url.originalUrl }}</td>
+        </tr>
+        <tr>
+            <td><strong>Shortened URL</strong></td>
+            <td>{{ urlsMacros.shortedLink(url) }}</td>
+        </tr>
+        <tr>
+            <td><strong>Active</strong></td>
+            <td>
+                {{ urlsMacros.urlState(url) }}
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Hits</strong></td>
+            <td>{{ url.hits }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

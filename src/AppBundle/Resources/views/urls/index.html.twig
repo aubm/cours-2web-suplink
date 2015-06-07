@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% import '@App/urls/macros.html.twig' as urlsMacros %}
+
+{% block body %}
+    <div>
+        <p><a href="{{ path('app_urls_edit') }}">Ajouter une url</a></p>
+    </div>
+    <table class="table table-hover table-condensed">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Original URL</th>
+            <th>Shortened URL</th>
+            <th>Active</th>
+            <th>Hits</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for url in urls %}
+            <tr>
+                <td>{{ url.id }}</td>
+                <td>{{ url.originalUrl }}</td>
+                <td>{{ urlsMacros.shortedLink(url) }}</td>
+                <td>{{ urlsMacros.urlState(url) }}</td>
+                <td>{{ url.hits }}</td>
+                <td><a href="{{ path('app_urls_show', {url_id: url.id}) }}" class="btn btn-primary">View details</a></td>
+                <td><a href="{{ path('app_urls_edit', {url_id: url.id}) }}" class="btn btn-primary">Edit</a></td>
+                <td>
+                    <form action="{{ path('app_urls_remove') }}" method="post">
+                        <input type="hidden" name="url_id" value="{{ url.id }}"/>
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

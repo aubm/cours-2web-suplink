@@ -1,0 +1,16 @@
+{% macro urlState(url) %}
+    {% if url.active %}
+        Yes
+    {% else %}
+        No
+    {% endif %}
+{% endmacro %}
+
+{% macro shortedLink(url) %}
+    {% set shortened_url = url('app_urls_handle', {shortened_url: url.shortenedUrl}) %}
+    {% if url.active %}
+        <a href="{{ shortened_url }}" target="_blank">{{ shortened_url }}</a>
+    {% else %}
+        {{ shortened_url }}
+    {% endif %}
+{% endmacro %}

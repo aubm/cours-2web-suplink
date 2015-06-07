@@ -1,0 +1,7 @@
+{% extends '::base.html.twig' %}
+
+{% form_theme url_form '::app_forms.html.twig' %}
+
+{% block body %}
+    {{ form(url_form) }}
+{% endblock %}

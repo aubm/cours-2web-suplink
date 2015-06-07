@@ -1,0 +1,27 @@
+{% block form_row %}
+    <div class="form-group">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endblock %}
+
+{% block text_widget %}
+    <input type="text"
+           class="form-control" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}"{% endif %}/>
+{% endblock %}
+
+{% block url_widget %}
+    <input type="url"
+           class="form-control" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}"{% endif %}/>
+{% endblock %}
+
+{% block submit_widget %}
+    <button type="submit" class="btn btn-primary" formnovalidate>{{ label }}</button>
+{% endblock %}
+
+{% block form_errors %}
+    {% for error in errors %}
+        <p class="text-danger">{{ error.message }}</p>
+    {% endfor %}
+{% endblock %}

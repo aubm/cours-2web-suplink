@@ -1,0 +1,4 @@
+services:
+    urls_manager:
+        class: AppBundle\Managers\UrlsManagerDoctrine
+        arguments: ["@doctrine.orm.default_entity_manager"]

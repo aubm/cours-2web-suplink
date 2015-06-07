@@ -1,0 +1,2 @@
+app_urls:
+    resource: '@AppBundle/Resources/config/routing.yml'

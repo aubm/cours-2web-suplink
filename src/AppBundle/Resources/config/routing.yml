@@ -1,0 +1,31 @@
+app_urls_index:
+    path: /urls
+    defaults:
+        _controller: AppBundle:Urls:index
+
+app_urls_show:
+    path: /urls/{url_id}
+    defaults:
+        _controller: AppBundle:Urls:show
+    requirements:
+        url_id: \d+
+
+app_urls_handle:
+    path: /u/{shortened_url}
+    defaults:
+        _controller: AppBundle:Urls:handle
+
+app_urls_edit:
+    path: /urls/edit/{url_id}
+    defaults:
+        _controller: AppBundle:Urls:edit
+        url_id: 0
+    requirements:
+        url_id: \d+
+
+app_urls_remove:
+    path: /urls/remove
+    defaults:
+        _controller: AppBundle:Urls:remove
+    requirements:
+        _method: POST
