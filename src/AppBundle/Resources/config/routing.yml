@@ -1,3 +1,10 @@
+app_homepage:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /urls
+        permanent: true
+
 app_urls_index:
     path: /urls
     defaults:

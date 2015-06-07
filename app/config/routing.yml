@@ -1,2 +1,9 @@
 app_urls:
     resource: '@AppBundle/Resources/config/routing.yml'
+
+fos_user_security:
+    resource: '@FOSUserBundle/Resources/config/routing/security.xml'
+
+fos_user_registration:
+    prefix: /register
+    resource: '@FOSUserBundle/Resources/config/routing/registration.xml'

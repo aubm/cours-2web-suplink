@@ -1,8 +1,9 @@
-{% extends '::base.html.twig' %}
+{% extends '::layout.html.twig' %}
 
 {% import '@App/urls/macros.html.twig' as urlsMacros %}
 
 {% block body %}
+    {{ parent() }}
     <div>
         <p><a href="{{ path('app_urls_edit') }}">Ajouter une url</a></p>
     </div>
